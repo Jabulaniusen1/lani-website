@@ -16,7 +16,6 @@
     "@react-google-maps/api": "^2.20.6",
     "@tailwindcss/vite": "^4.0.6",
     "aos": "^2.3.4",
-    "appwrite": "^17.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.2",
     "lucide-react": "^0.475.0",
@@ -25,6 +24,7 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.1.5",
     "smtpexpress": "^0.0.15",
+    "socket.io-client": "^4.8.3",
     "sonner": "^1.7.4",
     "tailwindcss": "^4.0.6"
   },

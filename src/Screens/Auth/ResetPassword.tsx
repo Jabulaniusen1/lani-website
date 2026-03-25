@@ -2,25 +2,41 @@ import { Input } from "@/Components/UI"
 import { AuthLayout } from "@/Layouts"
 import { LogIn, Mail } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { toast } from "sonner"
+import { apiRequest } from "@/Backend/api"
 
 const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
         setError("");
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(!email){
             setError("Email is required");
             return;
         }
-        toast.success("Password reset link sent");
+        setLoading(true);
+        try {
+          await apiRequest("/auth/forgot-password", {
+            method: "POST",
+            auth: false,
+            body: { email: email.toLowerCase() },
+          });
+          toast.success("If that email is registered, a reset code has been sent");
+          navigate(`/new-password?email=${encodeURIComponent(email.toLowerCase())}`);
+        } catch (error) {
+          toast.error((error as Error).message);
+        } finally {
+          setLoading(false);
+        }
     }
 
     return (
@@ -37,8 +53,8 @@ const ResetPassword = () => {
                     styles="lowercase placeholder:normal-case"
                     error={error}
                 />
-                <button type="submit" className="w-full btn bg-primary text-white px-4 h-10 rounded-full">
-                    Send Reset Link
+                <button disabled={loading} type="submit" className="w-full btn bg-primary text-white px-4 h-10 rounded-full">
+                    {loading ? "Sending..." : "Send Reset Code"}
                 </button>
             </form>
             <div className="flex items-center text-sub text-sm center my-6 gap-3">

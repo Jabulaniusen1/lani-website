@@ -16,12 +16,11 @@ const About = () => {
             <div className="flex flex-col gap-6">
               {/* <h1 className="text-main capitalize text-2xl">who we are</h1> */}
               <p className="text-sub md:text-left text-center text-sm font-dm">
-                At Lani Logistics, we specialize in providing fast, reliable,
-                and affordable logistics solutions. Whether you're a small
-                business or a large enterprise, our technology-driven approach
-                ensures your deliveries are always on time and in perfect
-                condition. Our mission is to bridge distances and connect people
-                through seamless logistics services.
+                Lani is built to simplify commerce and delivery. Customers can
+                order meals and essentials, merchants can manage stores and
+                catalogs, and riders can complete deliveries with clear order
+                updates. Our goal is to make everyday ordering and fulfillment
+                fast, transparent, and dependable.
               </p>
             </div>
             <Link

@@ -2,19 +2,19 @@ import { DispatchFormContext } from "@/Context/DispatchFormContext";
 import { useState } from "react";
 import { dispatchFormValidation } from "@/Utils/formValidation";
 import { toast } from "sonner";
-import { usePackageOrder, useAuth, useAdmin, useTransactions } from "@/Hooks";
+import { usePackageOrder, useAuth, useAdmin } from "@/Hooks";
 import { calculatePrice } from "@/Utils/helpers";
-import { databases, DB, USERS } from "@/Backend/appwrite";
 
 
 const DispatchFormProvider = ({ children }: { children: React.ReactNode }) => {
   const { createOrder, loading } = usePackageOrder();
-  const { createTransaction } = useTransactions();
-  const { userData, user } = useAuth();
+  const { userData } = useAuth();
   const { rates } = useAdmin();
   // States
  
-  const rate = userData?.location === "Uyo" ? rates?.rateForUyo : rates?.rateForPh;
+  const rate =
+    Number(userData?.location === "Uyo" ? rates?.rateForUyo : rates?.rateForPh) ||
+    300;
 
   const [currentStep, setCurrentStep] = useState(1);
   const [imgPreview, setImgPreview] = useState<string | null>(null);
@@ -174,11 +174,6 @@ const DispatchFormProvider = ({ children }: { children: React.ReactNode }) => {
         lon: deliveryDetails.deliveryLocationLng,
       };
       const price = calculatePrice(pickup, delivery, rate);
-      if (userData?.wallet < price) {
-        toast.error("Insufficient balance");
-        return;
-      }
-      handlePayment(price);
       toast.promise(createOrder(packageDetails, deliveryDetails, pickupDetails, price, true), {
         loading: "Creating order...",
         success: "Order created successfully",
@@ -216,23 +211,6 @@ const DispatchFormProvider = ({ children }: { children: React.ReactNode }) => {
         success: "Order created successfully",
         error: (error) => (error as Error).message,
       });
-    }
-  };
-
-  const handlePayment = async (price: number) => {
-    if (!user){
-toast.error("Payment failed!")
-    } ;
-    try {
-      const res = await databases.updateDocument(DB, USERS, user.$id, {
-        wallet: userData?.wallet - price,
-      });
-      await createTransaction(price, "success", "debit", "Package", "Payment for package dispatch");
-
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-      await createTransaction(price, "failed", "debit", "Package", "Payment for package dispatch");
     }
   };
 

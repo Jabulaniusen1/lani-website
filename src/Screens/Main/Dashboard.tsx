@@ -6,7 +6,8 @@ import { Loading } from "@/Components/Main";
 const Dashboard = () => {
   const { userData } = useAuth();
   const isRider = userData?.role === "rider";
-  const isRestaurant = userData?.role === "restaurant";
+  const isRestaurant =
+    userData?.role === "restaurant" || userData?.role === "merchant";
  
 
   if (isRider) {

@@ -23,7 +23,7 @@ const Footer = () => {
                     <div>
                         <h2 className="text-xl font-bold mb-4">About Us</h2>
                         <p className="text-gray-400">
-                            We are dedicated to providing the best delivery service for your needs. Our team is committed to ensuring your packages arrive safely and on time.
+                            Lani powers everyday ordering and delivery by connecting customers, merchants, and riders in one reliable platform.
                         </p>
                     </div>
                     <div>
@@ -59,7 +59,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="text-center mt-8 border-t border-gray-700 pt-4">
-                    <p className="text-gray-400 text-sm">© 2023 Lani Logistics. All rights reserved.</p>
+                    <p className="text-gray-400 text-sm">© 2026 Lani. All rights reserved.</p>
                 </div>
             </div>
         </footer>

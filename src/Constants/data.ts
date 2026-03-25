@@ -5,18 +5,18 @@ import { UtensilsCrossed } from "lucide-react";
 export const slides = [
   {
     image: "/tracking.svg",
-    title: "Track Your Shipments",
-    description: "Real-time tracking of all your deliveries",
+    title: "Track Every Order",
+    description: "Follow meals, pharmacy items, groceries, and parcels in real time.",
   },
   {
     image: "/delivery.svg",
-    title: "Fast Delivery",
-    description: "Quick and reliable logistics solutions",
+    title: "Fast Local Delivery",
+    description: "Get reliable same-day delivery with live status updates.",
   },
   {
     image: "/food.svg",
-    title: "Food Delivery",
-    description: "Order a quick snack from your favorite restaurants",
+    title: "Sell and Fulfill with Ease",
+    description: "Merchants manage stores while riders complete deliveries seamlessly.",
   },
 ];
 
@@ -44,15 +44,15 @@ export const states = [
 export const customerActions = [
   {
     title: "Dispatch",
-    description: "Send packages across your city or interstate",
+    description: "Send parcels with reliable pickup and drop-off.",
     icon: Bike,
     path: "/dispatch/type",
     color: "text-primary",
     bgColor: "bg-primary/10",
   },
   {
-    title: "Food",
-    description: "Order food from restaurants near you",
+    title: "Order Now",
+    description: "Order meals and essentials from nearby stores.",
     icon: UtensilsCrossed,
     path: "/food",
     color: "text-primary-2",
@@ -60,47 +60,28 @@ export const customerActions = [
   },
 ];
 
-export const headerLinks = [
-  {
-    title: "Home",
-    path: "",
-  },
-  {
-    title: "About",
-    path: "about",
-  },
-  {
-    title: "Services",
-    path: "services",
-  },
-  {
-    title: "Contact",
-    path: "contact",
-  },
-];
-
 
 export const services = [
   {
-    title: "Express Delivery",
-    content: "Fast, same-day deliveries to meet your urgent needs.",
+    title: "Multi-Category Ordering",
+    content: "Order from restaurants, pharmacies, and supermarkets in one app.",
     icon: Truck,
   },
   {
-    title: "Inter-state Delivery",
-    content: "Efficient and secure delivery services across state borders.",
+    title: "Merchant Store Management",
+    content: "Manage menu items, product categories, orders, and availability from one dashboard.",
     icon: Globe,
   },
   {
-    title: "Custom Solutions",
+    title: "Rider Delivery Network",
     content:
-      "Logistics services tailored to your unique business requirements.",
+      "Dispatch riders quickly and keep customers updated from pickup to delivery.",
     icon: Cable,
   },
   {
-    title: "E-commerce Logistics",
+    title: "Real-time Tracking",
     content:
-      "Tailored solutions for online businesses, from warehouse management to last-mile delivery.",
+      "Track every order with transparent status updates and notifications.",
     icon: Warehouse,
   },
 ];
@@ -109,56 +90,56 @@ export const offers = [
   {
     icon: PackageOpen,
     image: "/img6.jpg",
-    title: "Lani Express",
+    title: "Lani Merchant",
     content:
-      "Simplify your interstate logistics with Lani Express. Whether sending or receiving, we ensure swift and secure package delivery across Nigeria.",
+      "Run your store online, organize products by category, and manage incoming orders from one place.",
   },
   {
     icon: Utensils,
     image: "/img4.jpg",
-    title: "Lani Eats",
+    title: "Lani Delivery Network",
     content:
-      "Savor the flavors you love with Lani Eats. Enjoy freshly prepared meals delivered straight to your doorstep, hassle-free.",
+      "Connect customers to nearby merchants with fast, dependable rider fulfillment.",
   },
 ];
 
 export const faqs = [
   {
-    question: "What does Lani do?",
+    question: "What is Lani?",
     answer:
-      "At Lani, we make it easy for business owners to get their products into the hands of customers quickly. Our fast and reliable delivery service takes the hassle out of logistics, so you can focus on growing your business.",
+      "Lani is a delivery platform that connects customers, merchants, and riders. Customers place orders, merchants fulfill them, and riders complete delivery.",
   },
   {
-    question: "Where does Lani Operate?",
+    question: "Who can use Lani?",
     answer:
-      "Right now, we're proudly serving Uyo and Port Harcourt. But we're just getting started - Lani is expanding fast, and soon, we'll be delivering across most states in Nigeria.",
+      "Customers can order items, merchants can manage stores and orders, and riders can accept and complete deliveries through the platform.",
   },
   {
-    question: "What makes Lani unique?",
+    question: "What can customers order on Lani?",
     answer:
-      "Lani works just like your favourite ride-hailing service providers, such as Bolt and Uber. We connect you to a dispatch rider closest to you, who'll arrive under 15 minutes. In addition, you can track the rider in real-time from pick-up to drop-off, giving you peace of mind every step of the way.",
+      "Customers can order meals, pharmacy essentials, supermarket products, and request parcel dispatch where available.",
   },
   {
-    question: "Does Lani have other services?",
+    question: "How do I track an order?",
     answer:
-      "Yes, we have Lani Express to handle all your within and interstate package deliveries, then Lani Eats to get delicious meal delivered right to your doorsteps",
+      "Every order includes tracking and status updates so you can monitor progress from confirmation to delivery.",
   },
 ];
 
 export const socials = [
   {
     icon: FaInstagram,
-    name: "@lani_logistics",
+    name: "@lani",
     link: "",
   },
   {
     icon: FaFacebook,
-    name: "Lani Logistics",
+    name: "Lani",
     link: "",
   },
   {
     icon: FaWhatsapp,
-    name: "Lani community",
+    name: "Lani Community",
     link: "",
   },
 ];

@@ -1,4 +1,25 @@
+declare namespace Models {
+  interface Preferences {
+    [key: string]: unknown;
+  }
 
+  interface User<TPreferences = Preferences> {
+    $id: string;
+    name: string;
+    email: string;
+    prefs?: TPreferences;
+    $createdAt?: string;
+    $updatedAt?: string;
+    [key: string]: any;
+  }
+
+  interface Document {
+    $id: string;
+    $createdAt: string;
+    $updatedAt: string;
+    [key: string]: any;
+  }
+}
 
 interface FormType {
   role?: string;
@@ -9,12 +30,14 @@ interface FormType {
   phoneNumber: string;
   businessName: string;
   businessRegNo: string;
+  merchantType: string;
+  isBusinessRegistered: string;
+  cacDocument: File | null;
   address: string;
   location: string;
   lat: number;
   lon: number;
 }
-
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -49,11 +72,11 @@ interface RestaurantRegistrationFormTypes {
   email: string;
   phone: string;
   address: string;
-  lat:number;
-  lon:number;
+  lat: number;
+  lon: number;
   password: string;
   role?: string;
-  city?:string
+  city?: string;
 }
 
 interface LoginFormTypes {
@@ -149,11 +172,11 @@ interface AuthContextType {
   updatePhoneNumber: (phone: string) => Promise<void>;
   updateLocation: (location: string) => Promise<void>;
   users: Models.Document[];
-  rates: Models.Document;
+  rates: Models.Document | null;
   isUpdatingUyo: boolean;
   isUpdatingPh: boolean;
-  updateRatesUyo: (rate: string) => Promise<void>;
-  updateRatesPh: (rate: string) => Promise<void>;
+  updateRatesUyo: (rate: string | number | undefined) => Promise<void>;
+  updateRatesPh: (rate: string | number | undefined) => Promise<void>;
   transactions: Models.Document[];
   createTransaction: (
     amount: number,
@@ -201,25 +224,22 @@ interface MapsContextType {
 }
 
 interface NotificationContextType {
-    createNotifications: (
-      notification: Notifications,
-      id: string
-    ) => Promise<void>;
-    markAllAsRead: () => Promise<void>;
-    notifications: Models.Document[] | null;
-    unreadCount: number;
-    isLoading: boolean;
-    markAsRead?: (notificationId: string) => Promise<void>;
-  }
+  createNotifications: (notification: Notifications, id: string) => Promise<void>;
+  markAllAsRead: () => Promise<void>;
+  notifications: Models.Document[] | null;
+  unreadCount: number;
+  isLoading: boolean;
+  markAsRead?: (notificationId: string) => Promise<void>;
+}
 
-  interface Notifications {
-    notificationId?: string;
-    type: string;
-    title: string;
-    content: string;
-    activity?: string;
-    path?: string;
-    isRead?: boolean;
-  }
+interface Notifications {
+  notificationId?: string;
+  type: string;
+  title: string;
+  content: string;
+  activity?: string;
+  path?: string;
+  isRead?: boolean;
+}
 
-type NotificationType = 'order' | 'system' | 'success' | 'alert' | 'food';
+type NotificationType = "order" | "system" | "success" | "alert" | "food";

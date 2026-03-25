@@ -9,7 +9,7 @@ import { toast } from "sonner";
 interface LocationProps {
   form: FormType;
   setSteps: (steps: { step: string }) => void;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   loading: boolean;
 }
 

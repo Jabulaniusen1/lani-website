@@ -1,4 +1,3 @@
-import { Models } from "appwrite";
 import { formatDate } from "@/Utils/formatDate";
 const riderAssignedEmail = (order: Models.Document) => {
     const createdAt = formatDate(order.$createdAt);

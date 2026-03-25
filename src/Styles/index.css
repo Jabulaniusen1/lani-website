@@ -66,6 +66,10 @@ body {
   @apply max-w-[90%] md:max-w-[700px] mx-auto;
 }
 
+.dashboard-layout {
+  @apply max-w-[94%] lg:max-w-[1280px] mx-auto;
+}
+
 .btn{
   @apply flex items-center justify-center gap-2 font-sora font-medium rounded-full text-sm;
 }
@@ -73,4 +77,3 @@ body {
 button{
   @apply cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
 }
-

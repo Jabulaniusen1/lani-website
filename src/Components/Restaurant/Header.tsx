@@ -11,7 +11,7 @@ const Header = () => {
   return (
    <>
    <header className="sticky top-0 z-50 backdrop-blur-sm">
-        <nav className="layout h-[60px] flex items-center justify-between">
+        <nav className="dashboard-layout md:pl-24 lg:pl-64 h-[60px] flex items-center justify-between">
           {!isDashboard ? <Goback />: (
             <div/>
           )}

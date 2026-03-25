@@ -1,58 +1,28 @@
-import { useState } from "react";
 import { Input } from "../UI";
-import { Loader, Wallet } from "lucide-react";
-import PaystackPop from "@paystack/inline-js";
+import { AlertCircle, Loader, Wallet } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
-import { useTransactions } from "@/Hooks";
 
 const FundWallet = () => {
-  const { createTransaction } = useTransactions();
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFundWallet = () => {
-    const paystack = new PaystackPop();
-    paystack.newTransaction({
-      key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY,
-      email: "giftjacksun@gmail.com",
-      amount: Number(amount) * 100,
-      currency: "NGN",
-      onSuccess: (transaction) => {
-        console.log(transaction);
-        createTransaction(
-          Number(amount),
-          "success",
-          "credit",
-          "deposit",
-          "Funding wallet"
-        );
-        toast.success("Funding successful");
-      },
-      onCancel: () => {
-        console.log("Transaction cancelled");
-      },
-    });
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!amount) {
       setError("Amount is required");
       return;
     }
-    if (Number(amount) < 500) {
-      setError("Amount must be equal or greater than 500 NGN");
-      toast.error("Amount must be equal or greater than 500 NGN");
-      return;
-    }
+
     setIsLoading(true);
     setTimeout(() => {
-      handleFundWallet();
       setIsLoading(false);
+      toast.info("Wallet funding is not available in the current API specification.");
       setAmount("");
       setError("");
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -78,6 +48,10 @@ const FundWallet = () => {
           >
             {isLoading ? <Loader className="animate-spin" /> : "Fund"}
           </button>
+          <div className="text-xs text-sub flex items-start gap-1 mt-1">
+            <AlertCircle size={14} className="mt-0.5" />
+            <span>Use merchant/rider payout endpoints from the API for wallet operations.</span>
+          </div>
         </form>
       </div>
     </div>

@@ -24,7 +24,7 @@ interface UserRegistrationProps {
   errors: FormType;
   setErrors: (errors: FormType) => void;
   handleAddressSelect: () => void;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 const UserRegistration = ({
@@ -85,11 +85,11 @@ const subrole = searchParams.get("subrole")
         <Input
           label="Phone Number"
           name="phoneNumber"
-          type="number"
+          type="tel"
           value={form.phoneNumber}
           onChange={handleChange}
           icon={<Phone size={18} />}
-          placeholder="e.g. 08060000000"
+          placeholder="e.g. 08060000000 or +2348060000000"
           error={errors.phoneNumber}
         />
         {(isBusiness || isCompany) && (

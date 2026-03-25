@@ -19,7 +19,6 @@ import { usePackageOrder } from "@/Hooks";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useAuth } from "@/Hooks";
-import { Models } from "appwrite";
 
 const OrderPreview = () => {
   const { userData, users } = useAuth();

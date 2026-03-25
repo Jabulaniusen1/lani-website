@@ -1,5 +1,7 @@
 import { toast } from "sonner";
 
+const nigerianPhoneRegex = /^(?:\+234|0)\d{10}$/;
+
 export const registerFormValidation = (
   form: FormType,
   setErrors: (errors: FormType) => void,
@@ -15,6 +17,10 @@ export const registerFormValidation = (
   }
   if (!form.phoneNumber) {
     setErrors({ ...errors, phoneNumber: "Phone number is required" });
+    return false;
+  }
+  if (!nigerianPhoneRegex.test(form.phoneNumber.trim())) {
+    setErrors({ ...errors, phoneNumber: "Use a valid Nigerian phone number" });
     return false;
   }
   if (!form.password) {
@@ -118,13 +124,13 @@ export const dispatchFormValidation = (
   return true;
 };
 
-export const restaurantRegistrationFormValidation = (
+export const venorRegistrationFormValidation = (
   form: FormType,
   setErrors: (errors: FormType) => void,
   errors: FormType
 ) => {
   if (!form.name) {
-    setErrors({ ...errors, name: "Restaurant name is required" });
+    setErrors({ ...errors, name: "Full name is required" });
     return false;
   }
   if (!form.email) {
@@ -135,8 +141,12 @@ export const restaurantRegistrationFormValidation = (
     setErrors({ ...errors, phoneNumber: "Phone number is required" });
     return false;
   }
-  if (!form.address) {
-    setErrors({ ...errors, address: "Address is required" });
+  if (!nigerianPhoneRegex.test(form.phoneNumber.trim())) {
+    setErrors({ ...errors, phoneNumber: "Use a valid Nigerian phone number" });
+    return false;
+  }
+  if (!form.merchantType) {
+    setErrors({ ...errors, merchantType: "Merchant type is required" });
     return false;
   }
   if (!form.password) {
@@ -150,5 +160,9 @@ export const restaurantRegistrationFormValidation = (
     });
     return false;
   }
+  if (form.isBusinessRegistered === "true" && !form.cacDocument) {
+    toast.error("CAC document is required for registered businesses");
+    return false;
+  }
   return true;
-}
+};

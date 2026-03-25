@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Role from "./Role";
 import SubRole from "./SubRole";
-import RestaurantRegistration from "@/Components/Auth/RestaurantRegistration";
+import VenorRegistration from "@/Components/Auth/VenorRegistration";
 import Location from "./Location";
 import { UserRegistration } from "@/Components/Auth";
 
@@ -20,6 +20,9 @@ const Registration = () => {
     phoneNumber: "",
     businessName: "",
     businessRegNo: "",
+    merchantType: "RESTAURANT",
+    isBusinessRegistered: "false",
+    cacDocument: null,
     address: "",
     location: "",
     lat: 0,
@@ -32,6 +35,9 @@ const Registration = () => {
     phoneNumber: "",
     businessName: "",
     businessRegNo: "",
+    merchantType: "",
+    isBusinessRegistered: "",
+    cacDocument: null,
     address: "",
     location: "",
     lat: 0,
@@ -48,10 +54,21 @@ const Registration = () => {
     }, 1000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-    setErrors({ ...errors, [name]: "" });
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "isBusinessRegistered" && value === "false"
+        ? { cacDocument: null }
+        : {}),
+    }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleCacDocumentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setForm((prev) => ({ ...prev, cacDocument: file }));
   };
 
   const [addressAutocomplete, setAddressAutocomplete] =
@@ -100,17 +117,16 @@ const Registration = () => {
           handleChange={handleChange}
         />
       )}
-      {step === "restaurant" && (
-        <RestaurantRegistration
+      {step === "venor" && (
+        <VenorRegistration
           form={form}
           setSteps={setSearchParams}
-          addressAutocomplete={addressAutocomplete}
           setAddressAutocomplete={setAddressAutocomplete}
           errors={errors}
           setErrors={setErrors}
           handleAddressSelect={handleAddressSelect}
           handleChange={handleChange}
-          loading={loading}
+          handleCacDocumentChange={handleCacDocumentChange}
         />
       )}
       {step === "location" && (

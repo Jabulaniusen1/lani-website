@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 interface SubRoleProps {
  
   form: FormType;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   setSteps: (steps: { step: string, subrole: string }) => void;
 }
 

@@ -9,11 +9,11 @@ const MainLayout = ({title, children}: {title?: string, children: React.ReactNod
   return (
    <>
       <Header />
-      <main className="layout py-6">
+      <main className="dashboard-layout py-6 md:pl-24 lg:pl-64">
         {title && (
           <h1 className="text-xl font-bold font-sora text-main mb-6">{title}</h1>
         )}
-        <div className="pb-16 mb-16">{children}</div>
+        <div className="pb-20 md:pb-8 mb-8">{children}</div>
       </main>
       {!notVerifiedRider && <Navbar />}
    </>

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useAuth, usePackageOrder } from "@/Hooks";
 import { useState, useEffect } from "react";
-import { Models } from "appwrite";
 import { Mail, Phone, MapPin, Calendar, Package, Bike } from "lucide-react";
 import clsx from "clsx";
 import { toast } from "sonner";

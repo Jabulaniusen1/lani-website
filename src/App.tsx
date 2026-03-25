@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { Onboarding, SplashSceen, Home, Tracking } from "@/Screens/Home";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Onboarding, SplashSceen, Home, Tracking, Vendors, Riders } from "@/Screens/Home";
 import {
   Registration,
   Login,
@@ -8,6 +8,8 @@ import {
 } from "@/Screens/Auth";
 import {
   Dashboard,
+  Menu,
+  AddMenuItem,
   Profile,
   Notifications,
   OrderPreview,
@@ -49,6 +51,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/track" element={<Tracking />} />
+        <Route path="/vendors" element={<Vendors />} />
+        <Route path="/riders" element={<Riders />} />
         <Route path="/app" element={<SplashSceen />} />
         <Route path="/home" element={<Onboarding />} />
         <Route path="/register" element={<Registration />} />
@@ -59,6 +63,8 @@ const App = () => {
         {/* Protected Routes */}
         <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/menu/add" element={<AddMenuItem />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<CustomerOrders />} />
           <Route path="/notifications" element={<Notifications />} />
@@ -67,7 +73,8 @@ const App = () => {
           <Route path="/orders/:id" element={<OrderPreview />} />
           <Route path="/orders/available" element={<AvailableOrders />} />
           <Route path="/orders/completed" element={<CompletedOrders />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/earnings" element={<Wallet />} />
+          <Route path="/wallet" element={<Navigate to="/earnings" replace />} />
           <Route path="/food" element={<Food />} />
 
           {/* Admin Routes */}

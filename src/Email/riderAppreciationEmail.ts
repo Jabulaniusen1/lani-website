@@ -1,4 +1,3 @@
-import { Models } from "appwrite";
 
 const riderAppreciationEmail = (order: Models.Document) => {
     return `

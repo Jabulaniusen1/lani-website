@@ -3,7 +3,6 @@ import { usePackageOrder, useAuth } from "@/Hooks";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Models } from "appwrite";
 import { toast } from "sonner";
 import { Loader } from "lucide-react";
 import { formatNumber } from "@/Utils/formatNumber";

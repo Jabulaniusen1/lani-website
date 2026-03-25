@@ -5,7 +5,7 @@ import { toast } from "sonner";
 interface RoleProps {
   handleNextStep: () => void;
   form: FormType;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   loading: boolean;
   setSteps: (steps: { step: string }) => void;
 }
@@ -16,17 +16,17 @@ const Role = ({ handleNextStep, form, handleChange, loading, setSteps }: RolePro
       toast.error("Please select a role first!");
       return;
     }
-    if(form.role !== "restaurant"){
-    handleNextStep();
-    }else{
-      setSteps({step: "restaurant"})
+    if (form.role !== "venor") {
+      handleNextStep();
+    } else {
+      setSteps({ step: "venor" });
     }
   };
   return (
     <>
       <AuthLayout
         title="Select a Role 🚀"
-        subtitle="Become a rider to deliver food and packages, a customer to order dispatch or meals, or a restaurant to sell food online."
+        subtitle="Choose how you want to use Lani: order as a customer, sell as a merchant, or deliver as a rider."
       >
         <div className="flex flex-col gap-4">
           <label
@@ -78,27 +78,27 @@ const Role = ({ handleNextStep, form, handleChange, loading, setSteps }: RolePro
             </div>
           </label>
           <label
-            htmlFor="restaurant"
+            htmlFor="venor"
             className="text-main font-sora text-sm font-medium"
           >
             <input
               type="radio"
               name="role"
-              id="restaurant"
-              value="restaurant"
-              checked={form.role === "restaurant"}
+              id="venor"
+              value="venor"
+              checked={form.role === "venor"}
               className="hidden"
               onChange={handleChange}
             />
             <div
-              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "restaurant" ? "border-primary" : ""}`}
+              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "venor" ? "border-primary" : ""}`}
             >
-              {form.role === "restaurant" ? (
+              {form.role === "venor" ? (
                 <CircleCheck size={20} className="text-primary" />
               ) : (
                 <Circle size={20} className="text-sub" />
               )}
-              Restaurant
+              Venor
             </div>
           </label>
           <button

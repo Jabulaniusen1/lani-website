@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-0 z-50 backdrop-blur-sm">
-        <nav className="layout h-[60px] flex items-center justify-between line">
+        <nav className="dashboard-layout md:pl-24 lg:pl-64 h-[60px] flex items-center justify-between line">
           {!isDashboard ? <Goback />: (
             <p className="text-lg font-medium"><span className="text-sub">Hi,</span> <span className="text-main font-sora">{userData?.name.split(" ")[0]}</span></p>
           )}

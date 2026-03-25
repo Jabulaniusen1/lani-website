@@ -6,13 +6,13 @@ const Brand = () => {
         <div className='center'>
           <img
             src="/logo-orange.png"
-            alt="Lani Logistics"
+            alt="Lani"
             className=" object-cover"
             width={40}
           />
         </div>
         <h1 className="text-xl font-sora text-main font-bold">
-          Lani Logistics
+          Lani
         </h1>
       </div>
     </>

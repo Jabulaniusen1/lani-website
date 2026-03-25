@@ -1,4 +1,3 @@
-import { Models } from "appwrite";
 import { BadgeCheck, Check, Copy, Loader } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";

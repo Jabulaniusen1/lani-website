@@ -4,7 +4,6 @@ import { notificationStyles } from "@/Utils/helpers";
 import { Loader } from "lucide-react";
 import { Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Models } from "appwrite";
 import formatTimestamp from "@/Utils/formatTimestamp";
 
 const Notifications = () => {
