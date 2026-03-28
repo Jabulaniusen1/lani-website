@@ -110,7 +110,7 @@ const Hero = () => {
           </div>
 
           {/* App store buttons */}
-          <div className="flex md:flex-row flex-col gap-4 justify-center md:justify-start w-fit mx-auto md:mx-0">
+          <div className="flex flex-row gap-4 justify-center md:justify-start w-fit mx-auto md:mx-0">
             {/* Google Play */}
             <button
               onClick={() => setShowModal(true)}
