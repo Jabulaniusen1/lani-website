@@ -11,12 +11,12 @@ import {
   Upload,
 } from "lucide-react";
 import { Input } from "../UI";
-import { venorRegistrationFormValidation } from "@/Utils/formValidation";
+import { vendorRegistrationFormValidation } from "@/Utils/formValidation";
 import { Autocomplete } from "@react-google-maps/api";
 import { AuthLayout } from "@/Layouts";
 import { useState } from "react";
 
-interface VenorRegistrationProps {
+interface VendorRegistrationProps {
   form: FormType;
   handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   handleCacDocumentChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -29,7 +29,7 @@ interface VenorRegistrationProps {
   setSteps: (steps: { step: string }) => void;
 }
 
-const VenorRegistration = ({
+const VendorRegistration = ({
   form,
   handleChange,
   handleCacDocumentChange,
@@ -38,12 +38,12 @@ const VenorRegistration = ({
   errors,
   setErrors,
   handleAddressSelect,
-}: VenorRegistrationProps) => {
+}: VendorRegistrationProps) => {
   const [loading, setLoading] = useState(false);
   const isBusinessRegistered = form.isBusinessRegistered === "true";
 
   const handleNext = () => {
-    if (venorRegistrationFormValidation(form, setErrors, errors)) {
+    if (vendorRegistrationFormValidation(form, setErrors, errors)) {
       setLoading(true);
       setTimeout(() => {
         setSteps({ step: "location" });
@@ -55,7 +55,7 @@ const VenorRegistration = ({
   return (
     <>
       <AuthLayout
-        title="Venor Registration 🚀"
+        title="Vendor Registration 🚀"
         subtitle="Fill in the form below to continue"
       >
         <div className="space-y-4">
@@ -77,7 +77,7 @@ const VenorRegistration = ({
             onChange={handleChange}
             icon={<Mail size={18} />}
             styles="lowercase"
-            placeholder="e.g. venor@example.com"
+            placeholder="e.g. vendor@example.com"
             error={errors.email}
           />
           <Input
@@ -243,4 +243,4 @@ const VenorRegistration = ({
   );
 };
 
-export default VenorRegistration;
+export default VendorRegistration;

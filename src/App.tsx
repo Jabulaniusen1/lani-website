@@ -17,7 +17,7 @@ import {
   Wallet,
 } from "@/Screens/Main";
 import { CustomerOrders, Dispatch, Food } from "@/Screens/Customer";
-import { AvailableOrders, CompletedOrders } from "@/Screens/Rider";
+import { AvailableOrders, CompletedOrders, RiderOnboarding } from "@/Screens/Rider";
 import {
   Overview,
   Users,
@@ -73,6 +73,7 @@ const App = () => {
           <Route path="/orders/:id" element={<OrderPreview />} />
           <Route path="/orders/available" element={<AvailableOrders />} />
           <Route path="/orders/completed" element={<CompletedOrders />} />
+          <Route path="/rider/onboarding" element={<RiderOnboarding />} />
           <Route path="/earnings" element={<Wallet />} />
           <Route path="/wallet" element={<Navigate to="/earnings" replace />} />
           <Route path="/food" element={<Food />} />

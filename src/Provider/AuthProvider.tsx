@@ -34,6 +34,7 @@ type ApiUser = {
   rider?: {
     id?: string;
     isApproved?: boolean;
+    isOnboarded?: boolean;
   } | null;
 };
 
@@ -91,6 +92,7 @@ const toUserDocument = (
     role: mappedRole,
     subrole: mappedRole === "restaurant" ? "business" : "",
     isVerified: Boolean(user.isVerified || user.merchant?.isApproved || user.rider?.isApproved),
+    riderIsOnboarded: Boolean(user.rider?.isOnboarded),
     isAdmin: mapRole(user.role) === "admin",
     isActive: user.isActive ?? true,
     location,
@@ -265,7 +267,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     try {
       const { firstName, lastName } = splitName(form.name);
-      const isMerchant = form.role === "venor";
+      const isMerchant = form.role === "vendor";
       const merchantType = form.merchantType || "RESTAURANT";
       const isBusinessRegistered = form.isBusinessRegistered === "true";
       const role = isMerchant
@@ -324,7 +326,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         businessRegNo: form.businessRegNo,
       });
       await fetchCurrentUser();
-      navigate("/dashboard");
+      navigate(role === "RIDER" ? "/rider/onboarding" : "/dashboard");
     } catch (error) {
       throw new Error((error as Error).message);
     } finally {
@@ -558,6 +560,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       restaurants,
       updateRestaurant,
       verifyUser,
+      refreshUser: fetchCurrentUser,
     }),
     [
       user,
@@ -569,6 +572,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       isUpdatingPh,
       transactions,
       restaurants,
+      fetchCurrentUser,
     ]
   );
 

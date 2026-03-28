@@ -16,10 +16,10 @@ const Role = ({ handleNextStep, form, handleChange, loading, setSteps }: RolePro
       toast.error("Please select a role first!");
       return;
     }
-    if (form.role !== "venor") {
+    if (form.role !== "vendor") {
       handleNextStep();
     } else {
-      setSteps({ step: "venor" });
+      setSteps({ step: "vendor" });
     }
   };
   return (
@@ -30,27 +30,51 @@ const Role = ({ handleNextStep, form, handleChange, loading, setSteps }: RolePro
       >
         <div className="flex flex-col gap-4">
           <label
-            htmlFor="venor"
+            htmlFor="vendor"
             className="text-main font-sora text-sm font-medium"
           >
             <input
               type="radio"
               name="role"
-              id="venor"
-              value="venor"
-              checked={form.role === "venor"}
+              id="vendor"
+              value="vendor"
+              checked={form.role === "vendor"}
               className="hidden"
               onChange={handleChange}
             />
             <div
-              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "venor" ? "border-primary" : ""}`}
+              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "vendor" ? "border-primary" : ""}`}
             >
-              {form.role === "venor" ? (
+              {form.role === "vendor" ? (
                 <CircleCheck size={20} className="text-primary" />
               ) : (
                 <Circle size={20} className="text-sub" />
               )}
-              Venor
+              Vendor
+            </div>
+          </label>
+          <label
+            htmlFor="rider"
+            className="text-main font-sora text-sm font-medium"
+          >
+            <input
+              type="radio"
+              name="role"
+              id="rider"
+              value="rider"
+              checked={form.role === "rider"}
+              className="hidden"
+              onChange={handleChange}
+            />
+            <div
+              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "rider" ? "border-primary" : ""}`}
+            >
+              {form.role === "rider" ? (
+                <CircleCheck size={20} className="text-primary" />
+              ) : (
+                <Circle size={20} className="text-sub" />
+              )}
+              Rider
             </div>
           </label>
           <button

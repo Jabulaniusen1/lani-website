@@ -54,22 +54,23 @@ const Location = ({form, handleChange}: LocationProps) => {
 
       <div className="flex flex-col gap-4 mt-4">
         {filteredStates.map((state) => (
-          <label key={state.id}>
+          <label key={state.id} className={state.comingSoon ? "cursor-not-allowed" : ""}>
             <input
               type="radio"
               name="location"
               value={state.capital}
-              checked={
-                form.location === state.capital
-              }
+              checked={form.location === state.capital}
               onChange={handleChange}
+              disabled={state.comingSoon}
               className="hidden"
             />
             <div
-              className={`flex items-center gap-4 bg-background rounded-xl p-2 ${
-                form.location === state.capital
-                  ? "border border-primary"
-                  : "border border-line"
+              className={`flex items-center gap-4 bg-background rounded-xl p-2 border ${
+                state.comingSoon
+                  ? "border-line opacity-50"
+                  : form.location === state.capital
+                  ? "border-primary"
+                  : "border-line"
               }`}
             >
               <div
@@ -87,7 +88,11 @@ const Location = ({form, handleChange}: LocationProps) => {
               </div>
 
               <div className="center h-10 w-10">
-                {form.location === state.capital ? (
+                {state.comingSoon ? (
+                  <span className="text-xs font-medium text-sub bg-background-2 px-2 py-1 rounded-full whitespace-nowrap">
+                    Coming soon
+                  </span>
+                ) : form.location === state.capital ? (
                   <CheckCircle size={20} className="text-primary" />
                 ) : (
                   <Circle size={20} className="text-sub" />

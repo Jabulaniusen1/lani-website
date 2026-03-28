@@ -192,6 +192,7 @@ interface AuthContextType {
   restaurants: Models.Document[];
   updateRestaurant: (restaurant: Models.Document) => Promise<void>;
   verifyUser: (id: string) => Promise<void>;
+  refreshUser: () => Promise<void>;
 }
 
 interface PackageOrderContextType {

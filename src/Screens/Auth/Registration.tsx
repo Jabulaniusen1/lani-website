@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Role from "./Role";
 import SubRole from "./SubRole";
-import VenorRegistration from "@/Components/Auth/VenorRegistration";
+import VendorRegistration from "@/Components/Auth/VendorRegistration";
 import Location from "./Location";
 import { UserRegistration } from "@/Components/Auth";
 
@@ -117,8 +117,8 @@ const Registration = () => {
           handleChange={handleChange}
         />
       )}
-      {step === "venor" && (
-        <VenorRegistration
+      {step === "vendor" && (
+        <VendorRegistration
           form={form}
           setSteps={setSearchParams}
           setAddressAutocomplete={setAddressAutocomplete}

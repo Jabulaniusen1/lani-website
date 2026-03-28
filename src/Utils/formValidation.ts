@@ -124,7 +124,7 @@ export const dispatchFormValidation = (
   return true;
 };
 
-export const venorRegistrationFormValidation = (
+export const vendorRegistrationFormValidation = (
   form: FormType,
   setErrors: (errors: FormType) => void,
   errors: FormType
