@@ -28,15 +28,15 @@ const Registration = () => {
     lat: 0,
     lon: 0,
   });
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<FormType>({
     name: "",
     email: "",
     password: "",
     phoneNumber: "",
     businessName: "",
     businessRegNo: "",
-    merchantType: "",
-    isBusinessRegistered: "",
+    merchantType: "RESTAURANT",
+    isBusinessRegistered: "false",
     cacDocument: null,
     address: "",
     location: "",
