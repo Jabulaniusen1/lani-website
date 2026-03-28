@@ -5,7 +5,7 @@ import { Input, Select } from "@/Components/UI";
 import { apiRequest } from "@/Backend/api";
 import { useAuth } from "@/Hooks";
 import { toast } from "sonner";
-import { Bike, CreditCard, Home, Loader, MapPin, User } from "lucide-react";
+import { Bike, CreditCard, Loader, MapPin, User } from "lucide-react";
 
 type OnboardingForm = {
   vehicleType: string;
