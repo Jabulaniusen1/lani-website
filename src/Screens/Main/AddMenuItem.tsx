@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
-import { ArrowLeft, CircleAlert, Loader2 } from "lucide-react";
+import { ArrowLeft, CircleAlert, Loader2, Store } from "lucide-react";
 import { toast } from "sonner";
 import { RestaurantLayout } from "@/Layouts";
 import { useAuth } from "@/Hooks";
@@ -319,6 +319,26 @@ const AddMenuItem = () => {
           <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-red-500 flex items-start gap-2 text-sm">
             <CircleAlert size={16} className="mt-0.5" />
             <span>{error}</span>
+          </div>
+        )}
+
+        {!loading && !error && stores.length === 0 && (
+          <div className="bg-background border border-line rounded-xl p-8 flex flex-col items-center gap-4 text-center">
+            <div className="h-16 w-16 rounded-full bg-primary/10 center">
+              <Store size={28} className="text-primary" />
+            </div>
+            <div>
+              <h3 className="font-sora font-semibold">No stores found</h3>
+              <p className="text-sub text-sm mt-1">
+                You need to create a store before you can add menu items.
+              </p>
+            </div>
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="h-10 px-6 rounded-xl bg-primary text-white text-sm font-medium"
+            >
+              Go to Dashboard to Create Store
+            </button>
           </div>
         )}
 

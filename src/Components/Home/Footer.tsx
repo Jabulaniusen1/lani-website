@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 import { Input } from "../UI";
 const Footer = () => {
       const [email, setEmail] = useState("");
@@ -39,7 +39,11 @@ const Footer = () => {
                         <h2 className="text-xl font-bold mb-4">Stay Connected</h2>
                         <div className="flex space-x-4 mb-4">
                             <a href="#" className="hover:text-gray-300"><Facebook size={24} /></a>
-                            <a href="#" className="hover:text-gray-300"><Twitter size={24} /></a>
+                            <a href="#" className="hover:text-gray-300">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+                                </svg>
+                            </a>
                             <a href="#" className="hover:text-gray-300"><Instagram size={24} /></a>
                             <a href="#" className="hover:text-gray-300"><Linkedin size={24} /></a>
                         </div>

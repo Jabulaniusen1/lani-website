@@ -4,12 +4,14 @@ import {
   ContactInformation,
   AccountActions,
   CompanyInformation,
+  StoreInformation,
 } from "@/Components/Profile";
 import { useAuth } from "@/Hooks";
 const Profile = () => {
   const { userData } = useAuth();
   const isCompany = userData?.subrole === "company";
-  
+  const isMerchant = userData?.role === "restaurant";
+
   return (
     <>
       <MainLayout title="Profile">
@@ -17,6 +19,7 @@ const Profile = () => {
           <ProfileCard />
           <ContactInformation />
           {isCompany && <CompanyInformation />}
+          {isMerchant && <StoreInformation />}
           <AccountActions />
         </div>
       </MainLayout>
