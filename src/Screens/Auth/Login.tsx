@@ -1,9 +1,9 @@
 import { Input } from "@/Components/UI";
 import { AuthLayout } from "@/Layouts";
 import { loginFormValidation } from "@/Utils/formValidation";
-import { Mail, Lock, UserRoundPlus, RefreshCcw, Loader } from "lucide-react";
+import { Mail, Lock, RefreshCcw, Loader } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "@/Hooks";
 const Login = () => {
@@ -87,16 +87,6 @@ const Login = () => {
           {loading ? <Loader className="animate-spin" size={18} /> : "Login"}
         </button>
       </form>
-      <div className="flex items-center text-sub text-sm center my-6 gap-3">
-        <p>Don't have an account?</p>
-        <Link
-          to="/register"
-          className="bg-primary/10 text-primary btn px-4 py-2 rounded-full"
-        >
-          <UserRoundPlus size={18} />
-          <span>Register</span>
-        </Link>
-      </div>
     </AuthLayout>
   );
 };

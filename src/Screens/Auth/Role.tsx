@@ -30,54 +30,6 @@ const Role = ({ handleNextStep, form, handleChange, loading, setSteps }: RolePro
       >
         <div className="flex flex-col gap-4">
           <label
-            htmlFor="customer"
-            className="text-main font-sora text-sm font-medium "
-          >
-            <input
-              type="radio"
-              name="role"
-              id="customer"
-              value="customer"
-              checked={form.role === "customer"}
-              className="hidden"
-              onChange={handleChange}
-            />
-            <div
-              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "customer" ? "border-primary" : ""}`}
-            >
-              {form.role === "customer" ? (
-                <CircleCheck size={20} className="text-primary" />
-              ) : (
-                <Circle size={20} className="text-sub" />
-              )}
-              Customer
-            </div>
-          </label>
-          <label
-            htmlFor="rider"
-            className="text-main font-sora text-sm font-medium"
-          >
-            <input
-              type="radio"
-              name="role"
-              id="rider"
-              value="rider"
-              checked={form.role === "rider"}
-              className="hidden"
-              onChange={handleChange}
-            />
-            <div
-              className={`flex items-center gap-2 bg-background border border-line rounded-xl p-4 ${form.role === "rider" ? "border-primary" : ""}`}
-            >
-              {form.role === "rider" ? (
-                <CircleCheck size={20} className="text-primary" />
-              ) : (
-                <Circle size={20} className="text-sub" />
-              )}
-              Rider
-            </div>
-          </label>
-          <label
             htmlFor="venor"
             className="text-main font-sora text-sm font-medium"
           >

@@ -1,4 +1,4 @@
-import { Header, Hero, About, Services, Offers, Banner, FAQ, Contacts, Footer } from "@/Components/Home";
+import { Header, Hero, About, Services, Offers, Banner, FAQ, Contacts, Footer, Cities } from "@/Components/Home";
 import { HomeLayout } from "@/Layouts";
 
 
@@ -12,6 +12,7 @@ const Home = () => {
         <Services/>
         <Offers/>
         <Banner/>
+        <Cities/>
         <FAQ/>
         <Contacts/>
         <Footer/>
