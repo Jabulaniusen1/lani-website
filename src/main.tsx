@@ -4,7 +4,6 @@ import "./Styles/index.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import {
-  DispatchFormProvider,
   AuthProvider,
   PackageOrderProvider,
   MapsProvider,
@@ -23,9 +22,7 @@ createRoot(document.getElementById("root")!).render(
           <MapsProvider>
             <NotificationProvider>
               <PackageOrderProvider>
-                <DispatchFormProvider>
-                  <App />
-                </DispatchFormProvider>
+                <App />
               </PackageOrderProvider>
             </NotificationProvider>
           </MapsProvider>

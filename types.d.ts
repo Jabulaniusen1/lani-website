@@ -124,44 +124,6 @@ interface DeliveryDetails {
   deliveryLocationLng: number;
 }
 
-interface DispatchFormContextType {
-  currentStep: number;
-  setCurrentStep: (step: number) => void;
-  packageDetails: PackageDetails;
-  setPackageDetails: (details: PackageDetails) => void;
-  imgPreview: string | null;
-  setImgPreview: (preview: string | null) => void;
-  handlePackageDetails: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  handleNextStep: () => void;
-  handlePrevStep: () => void;
-  pickupDetails: PickupDetails;
-  setPickupDetails: (details: PickupDetails) => void;
-  handlePickupDetails: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  deliveryDetails: DeliveryDetails;
-  setDeliveryDetails: (details: DeliveryDetails) => void;
-  handleDeliveryDetails: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmitWithPayment: () => void;
-  handleSubmitWithoutPayment: () => void;
-  packageErrors: PackageDetails | undefined;
-  setPackageErrors: (errors: PackageDetails) => void;
-  pickupErrors: PickupDetails | undefined;
-  setPickupErrors: (errors: PickupDetails) => void;
-  deliveryErrors: DeliveryDetails | undefined;
-  setDeliveryErrors: (errors: DeliveryDetails) => void;
-  pickupAutocomplete: google.maps.places.Autocomplete | null;
-  setPickupAutocomplete: (
-    autocomplete: google.maps.places.Autocomplete | null
-  ) => void;
-  deliveryAutocomplete: google.maps.places.Autocomplete | null;
-  setDeliveryAutocomplete: (
-    autocomplete: google.maps.places.Autocomplete | null
-  ) => void;
-  handlePlaceSelect: (type: "pickup" | "delivery") => void;
-  loading: boolean;
-}
-
 interface AuthContextType {
   user: Models.User<Models.Preferences> | null;
   userData: Models.Document | null;

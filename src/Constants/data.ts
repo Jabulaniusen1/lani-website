@@ -1,4 +1,4 @@
-import { Bike, Truck, Cable, Globe, Warehouse, PackageOpen, Utensils} from "lucide-react";
+import { Truck, Cable, Globe, Warehouse, PackageOpen, Utensils} from "lucide-react";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 import { UtensilsCrossed } from "lucide-react";
 
@@ -81,16 +81,8 @@ export const states = [
 
 export const customerActions = [
   {
-    title: "Dispatch",
-    description: "Send parcels with reliable pickup and drop-off.",
-    icon: Bike,
-    path: "/dispatch/type",
-    color: "text-primary",
-    bgColor: "bg-primary/10",
-  },
-  {
-    title: "Order Now",
-    description: "Order meals and essentials from nearby stores.",
+    title: "Order Meals",
+    description: "Start a meal order and track it from your orders page.",
     icon: UtensilsCrossed,
     path: "/food",
     color: "text-primary-2",
@@ -113,7 +105,7 @@ export const services = [
   {
     title: "Rider Delivery Network",
     content:
-      "Dispatch riders quickly and keep customers updated from pickup to delivery.",
+      "Coordinate riders quickly and keep customers updated from pickup to delivery.",
     icon: Cable,
   },
   {
@@ -155,7 +147,7 @@ export const faqs = [
   {
     question: "What can customers order on Lani?",
     answer:
-      "Customers can order meals, pharmacy essentials, supermarket products, and request parcel dispatch where available.",
+      "Customers can order meals, pharmacy essentials, and supermarket products.",
   },
   {
     question: "How do I track an order?",

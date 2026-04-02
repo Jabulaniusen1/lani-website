@@ -8,7 +8,6 @@ export {default as Navbar} from "./Navbar"
 export {default as Subtitle} from "./Subtitle"
 export {default as OrderFilter} from "./OrderFilter"
 export {default as Modal} from "./Modal"
-export {default as Steps} from './DispatchFormStepsIndicator'
 export {default as OrderCard} from "./OrderCard"
 export {default as RecentOrders} from "./RecentOrders"
 export {default as ScrollToTop} from "./ScrollToTop"

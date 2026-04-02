@@ -16,7 +16,7 @@ import {
   NotFound,
   Wallet,
 } from "@/Screens/Main";
-import { CustomerOrders, Dispatch, Food } from "@/Screens/Customer";
+import { CustomerOrders, Food } from "@/Screens/Customer";
 import { AvailableOrders, CompletedOrders, RiderOnboarding } from "@/Screens/Rider";
 import {
   Overview,
@@ -33,7 +33,6 @@ import { ProtectedRoutes } from "./Components/Main";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { DispatchType } from "./Components/Dispatch";
 
 const App = () => {
   useEffect(() => {
@@ -68,8 +67,6 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<CustomerOrders />} />
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="/dispatch/type" element={<DispatchType />} />
-          <Route path="/dispatch/same-city" element={<Dispatch />} />
           <Route path="/orders/:id" element={<OrderPreview />} />
           <Route path="/orders/available" element={<AvailableOrders />} />
           <Route path="/orders/completed" element={<CompletedOrders />} />

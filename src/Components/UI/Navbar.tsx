@@ -18,6 +18,7 @@ const Navbar = () => {
   const isAdminRoute = location.pathname.includes("/admin");
   const isRider = userData?.role === "rider";
   const isMerchant = userData?.role === "restaurant" || userData?.role === "merchant";
+  const isCustomer = userData?.role === "customer";
 
   const userLinks = isMerchant
     ? [
@@ -40,6 +41,24 @@ const Navbar = () => {
           name: "Earnings",
           icon: Wallet,
           to: "/earnings",
+        },
+        {
+          name: "Profile",
+          icon: UserRound,
+          to: "/profile",
+        },
+      ]
+    : isCustomer
+    ? [
+        {
+          name: "Home",
+          icon: LayoutDashboard,
+          to: "/dashboard",
+        },
+        {
+          name: "Orders",
+          icon: Package,
+          to: "/orders",
         },
         {
           name: "Profile",

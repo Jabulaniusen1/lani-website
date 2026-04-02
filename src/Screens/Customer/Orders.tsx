@@ -18,10 +18,9 @@ const Orders = () => {
     "delivered",
     "cancelled",
   ];
-  const types = ["Package", "Food"];
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState(filters[0]);
-  const [orderType, setOrderType] = useState(types[0]);
+  const [orderType, setOrderType] = useState("Food");
   const [showFilter, setShowFilter] = useState(false);
   const toggleFilter = () => {
     setShowFilter((prev) => !prev);
@@ -34,7 +33,7 @@ const Orders = () => {
   });
   return (
     <>
-      <MainLayout title={`${orderType} Orders`}>
+      <MainLayout title="Meal Orders">
         <div>
           <div className="flex items-center gap-2">
             <div className="flex-1">
@@ -58,20 +57,16 @@ const Orders = () => {
               {filter}
             </span>
           </div>
-          {orderType === "Package" && (
-            <>
-            {filteredOrders.length === 0 && (
-              <div className="flex items-center justify-center h-full">
-                <p className="text-sub">No orders found</p>
-              </div>
-            )}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredOrders.map((order) => (
-                  <OrderCard key={order.$id} order={order} />
-                ))}
-              </div>
-            </>
+          {filteredOrders.length === 0 && (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-sub">No orders found</p>
+            </div>
           )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {filteredOrders.map((order) => (
+              <OrderCard key={order.$id} order={order} />
+            ))}
+          </div>
         </div>
       </MainLayout>
 
@@ -84,7 +79,7 @@ const Orders = () => {
             filters={filters}
             orderType={orderType}
             setOrderType={setOrderType}
-            types={types}
+            types={["Food"]}
           />
         )}
       </AnimatePresence>
