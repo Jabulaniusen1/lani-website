@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Onboarding, SplashSceen, Home, Tracking, Vendors, Riders } from "@/Screens/Home";
+import { Onboarding, SplashSceen, Home, Tracking, Vendors, Riders, PrivacyPolicy } from "@/Screens/Home";
 import {
   Registration,
   Login,
@@ -54,6 +54,7 @@ const App = () => {
         <Route path="/riders" element={<Riders />} />
         <Route path="/app" element={<SplashSceen />} />
         <Route path="/home" element={<Onboarding />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset" element={<ResetPassword />} />
