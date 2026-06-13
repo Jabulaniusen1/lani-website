@@ -6,6 +6,7 @@ import {
   UserRound,
   BellPlus,
   DollarSign,
+  UsersRound,
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "@/Hooks";
@@ -94,6 +95,21 @@ const Navbar = () => {
       name: "Home",
       icon: LayoutDashboard,
       to: "/admin",
+    },
+    {
+      name: "Users",
+      icon: UsersRound,
+      to: "/admin/users",
+    },
+    {
+      name: "Orders",
+      icon: Package,
+      to: "/admin/orders",
+    },
+    {
+      name: "Stores",
+      icon: UtensilsCrossed,
+      to: "/admin/restaurants",
     },
     {
       name: "Flat Rates",

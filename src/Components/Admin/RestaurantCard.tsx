@@ -1,32 +1,98 @@
-import { BadgeCheck, Check, Copy, Loader } from "lucide-react";
+import { Check, Copy, Loader, Power, ShieldAlert, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useAuth } from "@/Hooks";
 import clsx from "clsx";
 
-const RestaurantCard = ({ restaurant }: { restaurant: Models.Document }) => {
-    const { updateRestaurant, loading } = useAuth();
+const RestaurantCard = ({
+  restaurant,
+  loadingAction,
+  onUpdateStatus,
+}: {
+  restaurant: Models.Document;
+  loadingAction?: string | null;
+  onUpdateStatus: (restaurant: Models.Document, next: { isApproved?: boolean; isOpen?: boolean; reason?: string }) => Promise<void>;
+}) => {
+  const isSuspended = restaurant.isApproved === false;
+  const isOpen = restaurant.isOpen === true;
+  const isUpdating = loadingAction === restaurant.$id;
+  const ownerName = [restaurant.merchant?.user?.firstName, restaurant.merchant?.user?.lastName]
+    .filter(Boolean)
+    .join(" ")
+    .trim();
+
+  const handleSuspendToggle = () => {
+    const nextApproved = !restaurant.isApproved;
+    const reason = nextApproved
+      ? "Store reactivated by admin"
+      : window.prompt("Reason for suspending this store?", "Admin review required") || "Admin review required";
+
+    return onUpdateStatus(restaurant, {
+      isApproved: nextApproved,
+      ...(nextApproved ? {} : { isOpen: false }),
+      reason,
+    });
+  };
+
+  const handleOpenToggle = () => {
+    return onUpdateStatus(restaurant, {
+      isOpen: !isOpen,
+      reason: !isOpen ? "Store reopened by admin" : "Store closed by admin",
+    });
+  };
+
   return (
     <div className="bg-background p-4 rounded-lg border border-line">
-      <h3 className="text-main font-sora font-bold text-lg flex flex-col ">
-        {restaurant.name}
-      </h3>
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h3 className="text-main font-sora font-bold text-lg truncate">{restaurant.name}</h3>
+          <p className="text-sub text-sm truncate">{restaurant.merchant?.businessName || ownerName || "Merchant"}</p>
+        </div>
+        <span className={clsx("px-2 py-1 rounded-lg text-xs font-sora font-bold shrink-0", isSuspended ? "text-red-500 bg-red-500/10" : isOpen ? "text-green-500 bg-green-500/10" : "text-yellow-500 bg-yellow-500/10")}>
+          {isSuspended ? "Suspended" : isOpen ? "Open" : "Closed"}
+        </span>
+      </div>
       <div className="mb-4 space-y-2 border-t border-b border-line py-4">
         <Item value={restaurant.address} label="Address" />
-        <Item value={restaurant.phone} label="Phone number" />
-        <Item value={restaurant.email} label="Email" />
+        <Item value={`${restaurant.city || ""}${restaurant.state ? `, ${restaurant.state}` : ""}`} label="Location" />
+        <Item value={restaurant.merchant?.user?.phone || ""} label="Phone number" />
+        <Item value={restaurant.merchant?.user?.email || ""} label="Email" />
       </div>
 
-      <div className="ms-0 mt-auto flex items-center justify-between gap-2">
+      <div className="ms-0 mt-auto flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div className="flex items-center gap-2 text-xs text-sub">
+          <span>{restaurant._count?.orders || 0} orders</span>
+          <span>{restaurant._count?.menuItems || 0} items</span>
+        </div>
 
-       { !restaurant.isVerified && <button disabled={loading} onClick={() => updateRestaurant(restaurant)} className=" flex items-center gap-2 bg-green-500/10 h-9 px-4 rounded-lg text-green-500 font-sora font-bold text-sm">
-          <span>{loading ? "Verifying..." : "Verify Restaurant"}</span>
-          {loading ? <Loader className="animate-spin" size={20} /> : <BadgeCheck size={20} />}
-        </button>}
+        <div className="flex items-center gap-2 flex-wrap">
+          <button
+            type="button"
+            disabled={isUpdating || isSuspended}
+            onClick={handleOpenToggle}
+            className={clsx(
+              "h-9 px-3 rounded-lg text-xs font-sora font-bold center gap-2",
+              isOpen ? "bg-yellow-500/10 text-yellow-500" : "bg-green-500/10 text-green-500",
+              "disabled:opacity-50"
+            )}
+          >
+            {isUpdating ? <Loader className="animate-spin" size={16} /> : <Power size={16} />}
+            <span>{isOpen ? "Close" : "Open"}</span>
+          </button>
 
-        <span className={clsx(" px-2 py-1 rounded-lg text-sm", restaurant.isVerified ? "text-green-500 bg-green-500/10" : "text-yellow-500 bg-yellow-500/10")}>
-            {restaurant.isVerified ? "Verified" : "Not Verified"}
-        </span>
+          <button
+            type="button"
+            disabled={isUpdating}
+            onClick={handleSuspendToggle}
+            className={clsx(
+              "h-9 px-3 rounded-lg text-xs font-sora font-bold center gap-2",
+              isSuspended ? "bg-green-500/10 text-green-500" : "bg-red-500/10 text-red-500",
+              "disabled:opacity-50"
+            )}
+          >
+            {isUpdating ? <Loader className="animate-spin" size={16} /> : isSuspended ? <ShieldCheck size={16} /> : <ShieldAlert size={16} />}
+            <span>{isSuspended ? "Reactivate" : "Suspend"}</span>
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -38,6 +104,7 @@ const Item = ({ value, label }: { value: string; label: string }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
+    if (!value) return;
     setCopied(true);
     navigator.clipboard.writeText(value);
     toast.success(`${label} copied to clipboard`);
@@ -47,8 +114,8 @@ const Item = ({ value, label }: { value: string; label: string }) => {
   };
   return (
     <div className="flex items-center justify-between gap-2">
-      <p className="text-sub text-sm line-clamp-1">{value}</p>
-      <button className="center" onClick={handleCopy}>
+      <p className="text-sub text-sm line-clamp-1">{value || "Not provided"}</p>
+      <button className="center" onClick={handleCopy} disabled={!value}>
         {copied ? (
           <Check size={16} className="text-green-500" />
         ) : (

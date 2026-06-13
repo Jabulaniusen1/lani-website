@@ -103,6 +103,7 @@ const mapApiOrderToLegacy = (order: ApiOrder, options?: { deliveryId?: string })
     riderPhone: String(rider.phone || ""),
     isPaid: String(order.paymentStatus || "").toUpperCase() === "PAID",
     deliveryId: String(options?.deliveryId || order.delivery?.id || ""),
+    deliveryIssues: order.delivery?.issues || [],
     _raw: order,
   } satisfies Models.Document;
 };

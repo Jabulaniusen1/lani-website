@@ -171,7 +171,9 @@ const Riders = () => {
                 className="flex items-center gap-3 mt-8 flex-wrap"
               >
                 <a
-                  href="/app"
+                  href="https://forms.gle/V2WF7dyLiWbqr6J86"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-white font-sora font-semibold px-7 py-3 rounded-full hover:opacity-90 transition-opacity"
                 >
                   Start Riding <ArrowRight size={16} />
@@ -424,7 +426,9 @@ const Riders = () => {
                 We've got answers.
               </h2>
               <a
-                href="/app"
+                href="https://forms.gle/V2WF7dyLiWbqr6J86"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-8 bg-primary text-white font-sora font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
               >
                 Join Now <ArrowRight size={15} />
@@ -453,7 +457,9 @@ const Riders = () => {
                 day one — on your schedule, in your city.
               </p>
               <a
-                href="/app"
+                href="https://forms.gle/V2WF7dyLiWbqr6J86"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary text-white font-sora font-bold px-10 py-4 rounded-full text-base hover:opacity-90 transition-opacity"
               >
                 Become a Rider <ArrowRight size={18} />
