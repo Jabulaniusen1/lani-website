@@ -1,5 +1,5 @@
 import { Header, Footer } from "@/Components/Home"
-import { Shield, Mail, MapPin, ExternalLink } from "lucide-react"
+import { Shield, Mail, MapPin, ExternalLink, Trash2 } from "lucide-react"
 
 /* ── helpers ── */
 
@@ -564,7 +564,85 @@ const PrivacyPolicy = () => {
           </Section>
 
           {/* 16 */}
-          <Section number="16" title="Contact Us">
+          <Section id="account-deletion" number="16" title="Account Deletion">
+            <div className="flex items-start gap-4 bg-orange-50 border border-orange-100 rounded-2xl p-5 mb-4">
+              <Trash2 size={18} className="text-primary flex-shrink-0 mt-0.5" />
+              <p>
+                You have the right to permanently delete your Lani account and all associated
+                personal data at any time. This right applies to Customers, Merchants, and Riders.
+              </p>
+            </div>
+
+            <p className="font-sora font-semibold text-main text-base">16.1 How to Delete Your Account</p>
+            <p>You can request account deletion through either of the following methods:</p>
+            <Ul>
+              <Li>
+                <strong className="text-main">In-app:</strong> go to{" "}
+                <strong className="text-main">Profile → Settings → Delete Account</strong>. You will
+                be asked to confirm your decision. Once confirmed, your account deletion is queued
+                immediately.
+              </Li>
+              <Li>
+                <strong className="text-main">By email:</strong> send a request to{" "}
+                <a href="mailto:privacy@lani.ng" className="text-primary font-medium hover:underline">
+                  privacy@lani.ng
+                </a>{" "}
+                from the email address linked to your account with the subject line{" "}
+                <strong className="text-main">"Account Deletion Request"</strong>. We will process
+                your request within 30 days.
+              </Li>
+            </Ul>
+
+            <p className="font-sora font-semibold text-main text-base mt-4">16.2 What Happens After Deletion</p>
+            <Ul>
+              <Li>
+                Your account, profile, and personal data are permanently removed from our active
+                systems within <strong className="text-main">30 days</strong> of your confirmed
+                request.
+              </Li>
+              <Li>
+                Any active orders at the time of the request must be completed or cancelled before
+                deletion is finalised.
+              </Li>
+              <Li>
+                For Merchants and Riders with outstanding payouts, pending balances will be
+                transferred to your registered bank account before the account is closed.
+              </Li>
+              <Li>
+                Once deleted, your account cannot be recovered. Any reviews, ratings, or
+                anonymised analytics data derived from your activity may be retained in aggregate,
+                non-identifiable form.
+              </Li>
+            </Ul>
+
+            <p className="font-sora font-semibold text-main text-base mt-4">16.3 Data We Are Required to Retain</p>
+            <p>
+              Even after account deletion, certain data must be retained for legal and regulatory
+              reasons as described in Section 7 (Data Retention):
+            </p>
+            <Ul>
+              <Li>
+                <strong className="text-main">Financial transaction records</strong> — retained for
+                7 years to comply with Nigerian financial regulations (FIRS, CAMA).
+              </Li>
+              <Li>
+                <strong className="text-main">Identity verification documents</strong> (Riders and
+                Merchants) — retained for 3 years after the end of the business relationship.
+              </Li>
+              <Li>
+                <strong className="text-main">Order records</strong> — retained for 2 years for
+                dispute resolution purposes.
+              </Li>
+            </Ul>
+            <p>
+              This retained data is stored securely, access-restricted, and used solely for the
+              purposes stated. It will not be used for marketing or shared with third parties outside
+              of legal obligations.
+            </p>
+          </Section>
+
+          {/* 17 */}
+          <Section number="17" title="Contact Us">
             <p>
               For all privacy-related inquiries, data subject requests, or complaints, please
               contact:
