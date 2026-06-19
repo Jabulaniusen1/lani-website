@@ -257,7 +257,9 @@ const Vendors = () => {
                 className="flex items-center gap-3 mt-9 flex-wrap"
               >
                 <a
-                  href="/app"
+                  href="https://play.google.com/store/apps/details?id=com.lanieats.merchants"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-white font-sora font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity shadow-md shadow-primary/20"
                 >
                   Become a Vendor <ArrowRight size={16} />
@@ -488,7 +490,9 @@ const Vendors = () => {
             </div>
 
             <a
-              href="/app"
+              href="https://play.google.com/store/apps/details?id=com.lanieats.merchants"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative z-10 flex-shrink-0 inline-flex items-center gap-2 bg-primary text-white font-sora font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
             >
               Get Started <ArrowRight size={16} />
@@ -582,7 +586,9 @@ const Vendors = () => {
                   answered.
                 </h2>
                 <a
-                  href="/app"
+                  href="https://play.google.com/store/apps/details?id=com.lanieats.merchants"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 mt-8 bg-primary text-white font-sora font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
                 >
                   Become a Vendor <ArrowRight size={15} />
@@ -622,7 +628,9 @@ const Vendors = () => {
                 Lani. Your store could be next.
               </p>
               <a
-                href="/app"
+                href="https://play.google.com/store/apps/details?id=com.lanieats.merchants"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-primary font-sora font-bold px-10 py-4 rounded-full text-base hover:opacity-90 transition-opacity shadow-lg"
               >
                 Start for Free <ArrowRight size={18} />

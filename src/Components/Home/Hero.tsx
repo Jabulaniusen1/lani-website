@@ -112,8 +112,10 @@ const Hero = () => {
           {/* App store buttons */}
           <div className="flex flex-row gap-4 justify-center md:justify-start w-fit mx-auto md:mx-0">
             {/* Google Play */}
-            <button
-              onClick={() => setShowModal(true)}
+            <a
+              href="https://play.google.com/store/apps/details?id=com.savic3916.lanieats"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 bg-[#0d0d0d] text-white rounded-xl px-5 py-3 hover:opacity-80 transition-opacity border border-white/10 min-w-[160px]"
             >
               <svg viewBox="0 0 24 24" className="w-7 h-7 flex-shrink-0" fill="currentColor">
@@ -123,7 +125,7 @@ const Hero = () => {
                 <div className="text-[10px] opacity-60 leading-none mb-1">Get it on</div>
                 <div className="font-sora font-semibold text-sm leading-none">Google Play</div>
               </div>
-            </button>
+            </a>
 
             {/* App Store */}
             <button
