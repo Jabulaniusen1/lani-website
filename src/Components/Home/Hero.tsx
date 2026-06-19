@@ -96,6 +96,8 @@ const Hero = () => {
                   transition: "opacity 0.4s ease, transform 0.4s ease",
                 }}
               >
+
+                
                 {phrases[phraseIndex]}
               </p>
             </div>
