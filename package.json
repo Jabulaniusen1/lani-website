@@ -14,6 +14,7 @@
     "@paystack/inline-js": "^2.22.2",
     "@react-email/components": "0.0.33",
     "@react-google-maps/api": "^2.20.6",
+    "@sentry/react": "^10.67.0",
     "@tailwindcss/vite": "^4.0.6",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",
