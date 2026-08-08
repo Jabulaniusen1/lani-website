@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Onboarding, SplashSceen, Home, Tracking, Vendors, Riders, PrivacyPolicy } from "@/Screens/Home";
+import { Onboarding, SplashSceen, Home, Tracking, Vendors, Riders, PrivacyPolicy, Contact, TermsAndConditions } from "@/Screens/Home";
 import {
   Registration,
   Login,
@@ -55,6 +55,8 @@ const App = () => {
         <Route path="/app" element={<SplashSceen />} />
         <Route path="/home" element={<Onboarding />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset" element={<ResetPassword />} />

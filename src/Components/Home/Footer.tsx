@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 import { Input } from "../UI";
 const Footer = () => {
@@ -19,7 +20,7 @@ const Footer = () => {
   return (
     <footer data-aos="fade-up" className="bg-gray-800 rounded-t-xl text-white py-10">
             <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-4 gap-8">
                     <div>
                         <h2 className="text-xl font-bold mb-4">About Us</h2>
                         <p className="text-gray-400">
@@ -29,10 +30,17 @@ const Footer = () => {
                     <div>
                         <h2 className="text-xl font-bold mb-4">Quick Links</h2>
                         <ul className="space-y-2">
-                            <li><a href="#home" className="hover:text-gray-300">Home</a></li>
-                            <li><a href="#about" className="hover:text-gray-300">About Us</a></li>
-                            <li><a href="#services" className="hover:text-gray-300">Services</a></li>
-                            <li><a href="#contact" className="hover:text-gray-300">Contact</a></li>
+                            <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
+                            <li><Link to="/vendors" className="hover:text-gray-300">Vendors</Link></li>
+                            <li><Link to="/riders" className="hover:text-gray-300">Riders</Link></li>
+                            <li><Link to="/contact" className="hover:text-gray-300">Contact</Link></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 className="text-xl font-bold mb-4">Legal</h2>
+                        <ul className="space-y-2">
+                            <li><Link to="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link></li>
+                            <li><Link to="/terms" className="hover:text-gray-300">Terms &amp; Conditions</Link></li>
                         </ul>
                     </div>
                     <div>

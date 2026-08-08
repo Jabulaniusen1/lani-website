@@ -1,8 +1,16 @@
 import { MapsContext } from "@/Context/MapsContext";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useJsApiLoader } from "@react-google-maps/api";
+
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const GOOGLE_MAPS_LIBRARIES: "places"[] = ["places"];
 
 const MapsProvider = ({ children }: { children: React.ReactNode }) => {
+  const { isLoaded: isMapsLoaded } = useJsApiLoader({
+    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+    libraries: GOOGLE_MAPS_LIBRARIES,
+  });
   const [isLocationEnabled, setIsLocationEnabled] = useState(false);
   const [riderLocation, setRiderLocation] = useState<{
     address: string;
@@ -90,6 +98,7 @@ const MapsProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const value: MapsContextType = {
+    isMapsLoaded,
     isLocationEnabled,
     getRiderLocation,
     askForLocation,

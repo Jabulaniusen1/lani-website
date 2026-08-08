@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(lsof -ti:5173)"
     ]
   }
 }

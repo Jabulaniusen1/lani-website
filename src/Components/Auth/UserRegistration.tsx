@@ -14,6 +14,7 @@ import { useState } from "react";
 import { registerFormValidation } from "@/Utils/formValidation";
 import { Autocomplete } from "@react-google-maps/api";
 import { AuthLayout } from "@/Layouts";
+import { useMaps } from "@/Hooks";
 interface UserRegistrationProps {
   form: FormType;
   setSteps: (steps: { step: string, subrole: string, role: string }) => void;
@@ -41,6 +42,7 @@ const subrole = searchParams.get("subrole")
   const isBusiness = subrole === "business";
   const isCompany = subrole === "company";
   const [loading, setLoading] = useState(false);
+  const { isMapsLoaded } = useMaps();
 
   const handleNext = () => {
     if (registerFormValidation(form, setErrors, errors)) {
@@ -112,7 +114,8 @@ const subrole = searchParams.get("subrole")
             placeholder="e.g. ABC123"
             error={errors.businessRegNo}
           />
-          <Autocomplete
+          {isMapsLoaded ? (
+                <Autocomplete
                   onLoad={(autocomplete) => setAddressAutocomplete(autocomplete)}
                   onPlaceChanged={handleAddressSelect}
                 >
@@ -126,6 +129,17 @@ const subrole = searchParams.get("subrole")
                     error={errors.address}
                   />
                 </Autocomplete>
+          ) : (
+                <Input
+                  label="Address"
+                  name="address"
+                  value={form.address}
+                  onChange={handleChange}
+                  icon={<MapPin size={18} />}
+                  placeholder="e.g. 123 Main St, City"
+                  error={errors.address}
+                />
+          )}
           </>
         )}
         <Input

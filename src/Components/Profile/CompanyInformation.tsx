@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, Loader, Building } from "lucide-react";
 import { useState } from "react";
-import { useAuth } from "@/Hooks";
+import { useAuth, useMaps } from "@/Hooks";
 import { AnimatePresence } from "framer-motion";
 import { Modal } from "@/Components/UI";
 import { Input } from "@/Components/UI";
@@ -27,6 +27,7 @@ const CompanyInformation = () => {
   const [companyAddress, setCompanyAddress] = useState(address);
   const [addressAutocomplete, setAddressAutocomplete] =
     useState<google.maps.places.Autocomplete | null>(null);
+  const { isMapsLoaded } = useMaps();
 
   const handleAddressSelect = () => {
     const autocomplete = addressAutocomplete;
@@ -214,12 +215,23 @@ const CompanyInformation = () => {
                 <p className="text-sub text-xs">
                   Please enter your company address
                 </p>
-                <Autocomplete
-                  onLoad={(autocomplete) =>
-                    setAddressAutocomplete(autocomplete)
-                  }
-                  onPlaceChanged={handleAddressSelect}
-                >
+                {isMapsLoaded ? (
+                  <Autocomplete
+                    onLoad={(autocomplete) =>
+                      setAddressAutocomplete(autocomplete)
+                    }
+                    onPlaceChanged={handleAddressSelect}
+                  >
+                    <Input
+                      label="Company Address"
+                      placeholder="Enter your company address"
+                      value={companyAddress}
+                      onChange={(e) => setCompanyAddress(e.target.value)}
+                      name="address"
+                      icon={<MapPin size={18} />}
+                    />
+                  </Autocomplete>
+                ) : (
                   <Input
                     label="Company Address"
                     placeholder="Enter your company address"
@@ -228,7 +240,7 @@ const CompanyInformation = () => {
                     name="address"
                     icon={<MapPin size={18} />}
                   />
-                </Autocomplete>
+                )}
 
                 <button
                   disabled={loading}

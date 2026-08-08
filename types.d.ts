@@ -175,6 +175,7 @@ interface PackageOrderContextType {
 }
 
 interface MapsContextType {
+  isMapsLoaded: boolean;
   isLocationEnabled: boolean;
   getRiderLocation: () => Promise<{ latitude: number; longitude: number }>;
   askForLocation: () => Promise<void>;

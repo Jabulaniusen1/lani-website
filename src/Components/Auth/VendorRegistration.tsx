@@ -15,6 +15,7 @@ import { vendorRegistrationFormValidation } from "@/Utils/formValidation";
 import { Autocomplete } from "@react-google-maps/api";
 import { AuthLayout } from "@/Layouts";
 import { useState } from "react";
+import { useMaps } from "@/Hooks";
 
 interface VendorRegistrationProps {
   form: FormType;
@@ -40,6 +41,7 @@ const VendorRegistration = ({
   handleAddressSelect,
 }: VendorRegistrationProps) => {
   const [loading, setLoading] = useState(false);
+  const { isMapsLoaded } = useMaps();
   const isBusinessRegistered = form.isBusinessRegistered === "true";
 
   const handleNext = () => {
@@ -90,10 +92,22 @@ const VendorRegistration = ({
             placeholder="e.g. 08060000000 or +2348060000000"
             error={errors.phoneNumber}
           />
-          <Autocomplete
-            onLoad={(autocomplete) => setAddressAutocomplete(autocomplete)}
-            onPlaceChanged={handleAddressSelect}
-          >
+          {isMapsLoaded ? (
+            <Autocomplete
+              onLoad={(autocomplete) => setAddressAutocomplete(autocomplete)}
+              onPlaceChanged={handleAddressSelect}
+            >
+              <Input
+                label="Address"
+                name="address"
+                value={form.address}
+                onChange={handleChange}
+                icon={<MapPin size={18} />}
+                placeholder="e.g. 123 Main St, City (optional)"
+                error={errors.address}
+              />
+            </Autocomplete>
+          ) : (
             <Input
               label="Address"
               name="address"
@@ -103,7 +117,7 @@ const VendorRegistration = ({
               placeholder="e.g. 123 Main St, City (optional)"
               error={errors.address}
             />
-          </Autocomplete>
+          )}
           <div className="space-y-1.5">
             <label className="block font-sans text-sm text-sub font-medium mb-1">
               Merchant Type
