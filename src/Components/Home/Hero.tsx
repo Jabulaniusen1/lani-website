@@ -130,8 +130,10 @@ const Hero = () => {
             </a>
 
             {/* App Store */}
-            <button
-              onClick={() => setShowModal(true)}
+            <a
+              href="https://apps.apple.com/sa/app/lani-food-grocery-delivery/id6799493587"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 bg-[#0d0d0d] text-white rounded-xl px-5 py-3 hover:opacity-80 transition-opacity border border-white/10 min-w-[160px]"
             >
               <svg viewBox="0 0 24 24" className="w-7 h-7 flex-shrink-0" fill="currentColor">
@@ -141,7 +143,7 @@ const Hero = () => {
                 <div className="text-[10px] opacity-60 leading-none mb-1">Download on the</div>
                 <div className="font-sora font-semibold text-sm leading-none">App Store</div>
               </div>
-            </button>
+            </a>
           </div>
         </div>
 
