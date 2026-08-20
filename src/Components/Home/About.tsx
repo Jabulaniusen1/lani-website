@@ -24,7 +24,7 @@ const About = () => {
               </p>
             </div>
             <Link
-              to="/app"
+              to="/"
               className="btn bg-primary text-white h-[50px] px-6 rounded-full"
             >
               <span>Get Started</span>

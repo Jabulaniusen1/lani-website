@@ -10,7 +10,7 @@ const banner = () => {
                   <p className="font-dm text-main text-sm mt-4">One platform for ordering, store management, and fast delivery across key daily categories.</p>
               </div>
               <div className="w-[200px] mt-10">
-                  <Link to="/app" className="btn bg-white h-[60px] text-primary rounded-full">
+                  <Link to="/" className="btn bg-white h-[60px] text-primary rounded-full">
                       <span>Get Started</span>
                       <SquareMousePointer size={18}/>
                   </Link>

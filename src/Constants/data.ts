@@ -2,24 +2,6 @@ import { Truck, Cable, Globe, Warehouse, PackageOpen, Utensils} from "lucide-rea
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 import { UtensilsCrossed } from "lucide-react";
 
-export const slides = [
-  {
-    image: "/tracking.svg",
-    title: "Track Every Order",
-    description: "Follow meals, pharmacy items, groceries, and parcels in real time.",
-  },
-  {
-    image: "/delivery.svg",
-    title: "Fast Local Delivery",
-    description: "Get reliable same-day delivery with live status updates.",
-  },
-  {
-    image: "/food.svg",
-    title: "Sell and Fulfill with Ease",
-    description: "Merchants manage stores while riders complete deliveries seamlessly.",
-  },
-];
-
 export const states = [
   {
     id: 1,
