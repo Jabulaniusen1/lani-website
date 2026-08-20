@@ -1,7 +1,0 @@
-export {default as Role} from "./Role"
-export {default as Registration} from "./Registration"
-export {default as Login} from "./Login"
-export {default as ResetPassword} from "./ResetPassword"
-export {default as NewPassword} from "./NewPassword"
-export {default as Location} from "./Location"
-export {default as SubRole} from "./SubRole"
