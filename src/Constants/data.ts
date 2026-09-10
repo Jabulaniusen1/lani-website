@@ -1,5 +1,5 @@
 import { Truck, Cable, Globe, Warehouse, PackageOpen, Utensils} from "lucide-react";
-import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { UtensilsCrossed } from "lucide-react";
 
 export const states = [
@@ -141,8 +141,13 @@ export const faqs = [
 export const socials = [
   {
     icon: FaInstagram,
-    name: "@lani",
-    link: "",
+    name: "@lani_logistics",
+    link: "https://www.instagram.com/lani_logistics/",
+  },
+  {
+    icon: FaTiktok,
+    name: "@order_lani",
+    link: "https://www.tiktok.com/@order_lani?is_from_webapp=1&sender_device=pc",
   },
   {
     icon: FaFacebook,

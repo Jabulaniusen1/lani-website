@@ -91,7 +91,9 @@ const Contacts = () => {
               {socials.map((x, y) => (
                 <li data-aos="fade-right" key={y}>
                   <a
-                    href={`http://${x.link}`}
+                    href={x.link || "#"}
+                    target={x.link ? "_blank" : undefined}
+                    rel={x.link ? "noopener noreferrer" : undefined}
                     className="border border-line hover:scale-[1.05] duration-200 flex items-center gap-4 bg-background p-2 rounded-xl"
                   >
                     <x.icon size={30} />
