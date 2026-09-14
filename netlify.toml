@@ -8,6 +8,14 @@
   to = "/.well-known/:splat"
   status = 200
 
+# Deep links moved to app.lani.ng. The app still claims lani.ng/r/*, so an
+# already-shared link opens it when installed; this catches everyone else.
+[[redirects]]
+  from = "/r/*"
+  to = "https://app.lani.ng/r/:splat"
+  status = 302
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -4,7 +4,10 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.savic3916.lanieats",
-      "sha256_cert_fingerprints": ["TODO_PLAY_CONSOLE_SHA256_CERT_FINGERPRINT"]
+      "sha256_cert_fingerprints": [
+        "9F:CA:12:DF:45:B7:BB:D3:A1:01:70:9F:D2:D0:85:4D:E0:27:8F:73:C5:47:6A:80:2D:EC:58:29:39:8C:34:59",
+        "4E:3D:13:CB:0F:A5:CA:06:03:94:8A:02:82:EE:BB:C6:F3:16:82:02:A1:AB:47:41:A7:4D:7F:57:31:D7:54:9E"
+      ]
     }
   }
 ]
