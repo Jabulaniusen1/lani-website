@@ -141,8 +141,8 @@ export const faqs = [
 export const socials = [
   {
     icon: FaInstagram,
-    name: "@lani_logistics",
-    link: "https://www.instagram.com/lani_logistics/",
+    name: "@order_lani",
+    link: "https://www.instagram.com/order_lani/",
   },
   {
     icon: FaTiktok,
