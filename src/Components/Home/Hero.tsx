@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { X } from "lucide-react"
 
 const phrases = [
-  "You don chow?",
+  "You don chop?",
   "Have you eaten?",
   "Ame dia Mkpo?",
   "Se o ti jeun?",
