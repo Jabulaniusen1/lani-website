@@ -89,7 +89,7 @@ const Hero = () => {
             {/* Animated phrase */}
             <div className="h-14 md:h-16 overflow-hidden mb-2">
               <p
-                className="text-3xl md:text-5xl font-sora font-bold text-primary"
+                className="text-3xl md:text-5xl font-sora font-extrabold text-primary"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateY(0)" : "translateY(-14px)",
@@ -102,9 +102,6 @@ const Hero = () => {
               </p>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-sora font-bold">
-              Order. Sell. Deliver. All on Lani.
-            </h1>
             <p className="text-sub font-dm text-sm md:text-base mt-4">
               From meals and essentials to merchant fulfillment and rider
               delivery, Lani keeps the entire order journey in one platform.
